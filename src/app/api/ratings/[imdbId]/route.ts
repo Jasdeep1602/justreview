@@ -1,13 +1,10 @@
 import { getMovieRatings } from '@/lib/omdb';
 import { NextResponse } from 'next/server';
 
-interface RouteParams {
-  params: {
-    imdbId: string;
-  };
-}
-
-export async function GET(request: Request, context: RouteParams) {
+export async function GET(
+  _request: Request,
+  context: { params: { imdbId: string } }
+) {
   const imdbId = context.params.imdbId;
 
   if (!imdbId) {
