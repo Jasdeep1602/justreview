@@ -219,7 +219,13 @@ export default function Home() {
             />
           </div>
 
-          <p className='text-gray-500'>Enter a movie or TV show to begin</p>
+          <Image
+            src='/reviewLogoR.png'
+            alt='Movie background'
+            className='opacity-70'
+            width={150}
+            height={150}
+          />
         </div>
       )}
 
