@@ -1,11 +1,14 @@
 import { getMovieRatings } from '@/lib/omdb';
 import { NextResponse } from 'next/server';
 
-export async function GET(
-  request: Request,
-  { params }: { params: { imdbId: string } }
-) {
-  const imdbId = params.imdbId;
+interface RouteParams {
+  params: {
+    imdbId: string;
+  };
+}
+
+export async function GET(request: Request, context: RouteParams) {
+  const imdbId = context.params.imdbId;
 
   if (!imdbId) {
     return NextResponse.json({ error: 'IMDb ID is required' }, { status: 400 });
