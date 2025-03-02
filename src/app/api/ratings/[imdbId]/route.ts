@@ -3,9 +3,9 @@ import { NextResponse } from 'next/server';
 
 export async function GET(
   _request: Request,
-  context: { params: { imdbId: string } }
+  { params }: { params: { imdbId: string } }
 ) {
-  const imdbId = context.params.imdbId;
+  const imdbId = params.imdbId;
 
   if (!imdbId) {
     return NextResponse.json({ error: 'IMDb ID is required' }, { status: 400 });
